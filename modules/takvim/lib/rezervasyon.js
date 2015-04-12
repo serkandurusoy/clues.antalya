@@ -99,16 +99,16 @@ Meteor.methods({
       Email.send({
         to: bilgiler.eposta,
         from: 'info@cluesantalya.com',
-        subject: '[CLUES] Rezervasyonunuz alındı.',
-        text: 'Merhaba ' + bilgiler.isim + ','
+        subject: '[CLUES] Rezervasyonun alındı.',
+        text: 'Merhaba ' + bilgiler.isim.split(' ')[0] + ','
         + '\n\n'
         + bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz ' + moment(tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + saat + ' için alındı.'
         + '\n\n'
-        + fiyat + 'TL ücretinizi geldiğinizde nakit veya kredi kartınız ile ödeyebilirsiniz.'
+        + fiyat + 'TL ücretinizi geldiğinizde nakit veya kredi kartınız ile ödeyebilirsin.'
         + '\n\n'
-        + 'Bir değişiklik istemeniz durumunda, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsiniz.'
+        + 'Bir değişiklik istemeniz durumunda, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsin.'
         + '\n\n'
-        + 'Rezervasyonunuzu kısa bir süre öncesinde size e-posta ile tekrar hatırlatacak ve ' + formatPhone(bilgiler.telefon) + ' numaralı telefonunuzdan arayarak teyid edeceğiz.'
+        + 'Rezervasyonunuzu kısa bir süre öncesinde sana e-posta ile tekrar hatırlatacak ve ' + formatPhone(bilgiler.telefon) + ' numaralı telefonundan arayarak teyid edeceğiz.'
         + '\n\n'
         + 'Sizi görmek ve maceranıza tanık olmak için sabırsızlanıyoruz :)'
         + '\n\n'
@@ -177,18 +177,18 @@ Meteor.methods({
           Email.send({
             to: yenibilgiler.eposta,
             from: 'info@cluesantalya.com',
-            subject: '[CLUES] Rezervasyonunuz değiştirildi.',
-            text: 'Merhaba ' + yenibilgiler.isim + ','
+            subject: '[CLUES] Rezervasyonun değiştirildi.',
+            text: 'Merhaba ' + yenibilgiler.isim.split(' ')[0] + ','
             + '\n\n'
-            + moment(rez.tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + rez.saat + ' için yaptığınız ' + rez.bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz isteğiniz üzere değiştirildi. Güncel rezervasyon bilgileriniz aşağıdaki gibidir.'
+            + moment(rez.tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + rez.saat + ' için yaptığınız ' + rez.bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz isteğin üzere değiştirildi. Güncel rezervasyon bilgileriniz aşağıdaki gibi.'
             + '\n\n'
             + 'Zaman: ' + moment(yenitarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' - ' + yenisaat
             + '\n'
             + 'Sayı: ' + yenibilgiler.sayi + ' kişi ' + fiyat + 'TL'
             + '\n\n'
-            + 'Tekrar bir değişiklik istemeniz durumunda, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsiniz.'
+            + 'Tekrar bir değişiklik istemeniz durumunda, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsin.'
             + '\n\n'
-            + 'Rezervasyonunuzu kısa bir süre öncesinde size e-posta ile tekrar hatırlatacak ve ' + formatPhone(yenibilgiler.telefon) + ' numaralı telefonunuzdan arayarak bir kez daha teyid edeceğiz.'
+            + 'Rezervasyonunuzu kısa bir süre öncesinde size e-posta ile tekrar hatırlatacak ve ' + formatPhone(yenibilgiler.telefon) + ' numaralı telefonundan arayarak bir kez daha teyid edeceğiz.'
             + '\n\n'
             + 'Sizi görmek ve maceranıza tanık olmak için sabırsızlanıyoruz :)'
             + '\n\n'
@@ -224,12 +224,12 @@ Meteor.methods({
         Email.send({
           to: rez.bilgiler.eposta,
           from: 'info@cluesantalya.com',
-          subject: '[CLUES] Rezervasyonunuz iptal edildi.',
-          text: 'Merhaba ' + rez.bilgiler.isim + ','
+          subject: '[CLUES] Rezervasyonun iptal edildi.',
+          text: 'Merhaba ' + rez.bilgiler.isim.split(' ')[0] + ','
           + '\n\n'
-          + moment(rez.tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + rez.saat + ' için yaptığınız ' + rez.bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz isteğiniz üzere iptal edildi.'
+          + moment(rez.tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + rez.saat + ' için yaptığın ' + rez.bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz isteğin üzere iptal edildi.'
           + '\n\n'
-          + 'Yeni bir rezervasyon için http://www.cluesantalya.com/ sayfamızı ziyaret edebilir, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsiniz.'
+          + 'Yeni bir rezervasyon için http://www.cluesantalya.com/ sayfamızı ziyaret edebilir, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsin.'
           + '\n\n'
           + 'Sizi görmek ve maceranıza tanık olmak için sabırsızlanıyoruz :)'
           + '\n\n'
