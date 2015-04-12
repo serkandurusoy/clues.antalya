@@ -23,7 +23,7 @@ testIp = function(ip) {
 };
 
 bilgiDuzenle = function(bilgiler) {
-  bilgiler.isim = trim(bilgiler.isim);
+  bilgiler.isim = s.titleize(trim(bilgiler.isim));
 
   bilgiler.not = trim(bilgiler.not)+'';
   bilgiler.not = bilgiler.not.length > 0 ? bilgiler.not : 'Herhangi bir not bırakılmadı.';
