@@ -81,4 +81,38 @@ Meteor.startup(function(){
     });
   }
 
+  var acilisOncesiKampanyalar = [
+    {tarih: '2015-04-14', saat: '12:30', durum: 'kampanyali'},
+    {tarih: '2015-04-14', saat: '14:00', durum: 'kampanyali'},
+    {tarih: '2015-04-14', saat: '15:30', durum: 'kampanyali'},
+    {tarih: '2015-04-14', saat: '17:00', durum: 'kampanyali'},
+
+    {tarih: '2015-04-15', saat: '09:30', durum: 'kampanyali'},
+    {tarih: '2015-04-15', saat: '11:00', durum: 'kampanyali'},
+    {tarih: '2015-04-15', saat: '12:30', durum: 'kampanyali'},
+    {tarih: '2015-04-15', saat: '14:00', durum: 'kampanyali'},
+    {tarih: '2015-04-15', saat: '15:30', durum: 'kampanyali'},
+    {tarih: '2015-04-15', saat: '17:00', durum: 'kampanyali'},
+
+    {tarih: '2015-04-16', saat: '09:30', durum: 'kampanyali'},
+    {tarih: '2015-04-16', saat: '11:00', durum: 'kampanyali'},
+    {tarih: '2015-04-16', saat: '12:30', durum: 'kampanyali'},
+    {tarih: '2015-04-16', saat: '14:00', durum: 'kampanyali'},
+    {tarih: '2015-04-16', saat: '15:30', durum: 'kampanyali'},
+    {tarih: '2015-04-16', saat: '17:00', durum: 'kampanyali'},
+
+    {tarih: '2015-04-17', saat: '09:30', durum: 'kampanyali'},
+    {tarih: '2015-04-17', saat: '11:00', durum: 'kampanyali'},
+    {tarih: '2015-04-17', saat: '12:30', durum: 'kampanyali'},
+    {tarih: '2015-04-17', saat: '14:00', durum: 'kampanyali'},
+    {tarih: '2015-04-17', saat: '15:30', durum: 'kampanyali'},
+    {tarih: '2015-04-17', saat: '17:00', durum: 'kampanyali'}
+  ];
+
+  if (Rezervasyon.find({durum: 'kampanyali'}).count() === 0) {
+    _.each(acilisOncesiKampanyalar, function(kampanya) {
+      Rezervasyon.insert(kampanya);
+    });
+  }
+
 });
