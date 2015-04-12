@@ -1,5 +1,14 @@
 section {
   margin-top: 160px;
+  max-width: 71em;
+}
+
+@media screen and (min-width: 75em) {
+  section {
+    width: 71em;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (max-width: 64em) {
