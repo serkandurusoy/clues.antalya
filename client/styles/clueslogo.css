@@ -1,0 +1,6 @@
+.letter, .stroke {
+  stroke:none;
+  fill: #f0f0f0;
+  fill-opacity:1;
+  fill-rule:nonzero;
+}

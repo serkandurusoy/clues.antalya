@@ -1,0 +1,92 @@
+#nedir h1 {
+  font-size: 3.5em;
+  line-height: 1;
+}
+
+#nedir h1 em {
+  display: block;
+}
+
+#nedir p {
+  font-size: 1.3em;
+  line-height: 1.75;
+  text-align: justify;
+  margin: 1em 0;
+}
+
+#nedir blockquote {
+  padding: 0;
+  margin: 0;
+  color: #6e6e6e;
+  text-align: right;
+}
+
+#nedir blockquote p{
+  text-align: right;
+}
+
+#nedir .poem {
+  padding-top: 5%;
+  padding-left: 15%;
+}
+
+@media screen and (max-width: 64em) {
+  #nedir aside {
+    padding-right: 16px;
+  }
+
+  #nedir h1 {
+    font-size: 3em;
+    line-height: 1;
+  }
+
+  #nedir p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0.8em 0;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  #nedir aside {
+    padding-right: 32px;
+  }
+
+  #nedir h1 {
+    font-size: 2em;
+    line-height: 1;
+  }
+
+  #nedir p {
+    font-size: 1em;
+    line-height: 1.35;
+    text-align: justify;
+    margin: 0.8em 0;
+  }
+}
+
+@media screen and (max-width: 35em) {
+  #nedir aside {
+    padding-right: 0;
+    padding-left: 20px;
+  }
+
+  #nedir h1 {
+    font-size: 1.6em;
+    line-height: 1;
+  }
+
+  #nedir p {
+    font-size: 0.9em;
+    line-height: 1.35;
+    text-align: justify;
+    margin: 0.9em 0;
+  }
+
+  #nedir .poem {
+    padding-top: 5%;
+    padding-left: 0;
+  }
+
+}

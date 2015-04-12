@@ -1,0 +1,14 @@
+#edgardiv {
+  height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 142.86%;
+}
+
+#edgar {
+  max-width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,193 @@
+.rezformcontainer {
+  position: fixed;
+  background-color: rgba(17,17,17,0.9);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+.rezformcontainer:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
+.rezformwrapper {
+  display: inline-block;
+  vertical-align: middle;
+  width: 60%;
+  min-width: 280px;
+  max-width: 800px;
+  max-height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  border: thick solid #fbb040;
+  text-align: left;
+  padding: 1em;
+}
+
+.rezformwrapper .uyari {
+  text-align: center;
+  padding: 2em;
+}
+
+#rezform div {
+  padding: 0.5em;
+}
+
+#rezform strong {
+  display: inline-block;
+  width: 10em;
+}
+
+#rezform .error {
+  border: thin solid #ff4500;
+}
+
+#rezform .formHatali {
+  color: #ff4500;
+  font-size: 80%;
+}
+
+#rezform .baskasiAldi {
+  color: #ff4500;
+}
+
+input, select, textarea, button {
+  outline: none;
+  padding: 0.3em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: thin solid #c5c5c5;
+  background-color: #fff;
+}
+
+#rezform input:focus, #rezform select:focus, #rezform textarea:focus {
+  background-color: #f0f0f0;
+}
+
+#rezform select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="20" width="24"><polygon points="2,2 18,2 10,18" style="fill:#c5c5c5;stroke:#c5c5c5;stroke-width:0;"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+#rezform select option:first-child {
+  color: #c5c5c5;
+}
+
+#rezform select option:nth-child(2n) {
+  background-color: #c5c5c5;
+}
+
+#rezform input, #rezform select {
+  width: 70%;
+}
+
+#rezform .prefix {
+  display: inline-block;
+  text-align: center;
+  width: 10%;
+  font-weight: 700;
+}
+
+#rezform input[type='tel'] {
+  width: 60%;
+}
+
+@media screen and (max-width: 48em) {
+  #rezform .prefix {
+    width: 14%;
+  }
+
+  #rezform input[type='tel'] {
+    width: 56%;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  #rezform .prefix {
+    width: 8%;
+  }
+
+  #rezform input[type='tel'] {
+    width: 62%;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  #rezform .prefix {
+    width: 6%;
+  }
+
+  #rezform input[type='tel'] {
+    width: 64%;
+  }
+}
+
+#rezform em {
+  display: inline-block;
+  padding-left: 1em;
+}
+
+#rezform textarea {
+  width: 100%;
+  height: 6em;
+}
+
+#rezform button {
+  width: 100px;
+}
+
+#rezform div:last-child {
+  text-align: right;
+}
+
+#rezform button[type='reset'] {
+  background-color: transparent;
+  border: none;
+  color: #6e6e6e;
+  text-decoration: underline;
+}
+
+#rezform button[type='reset']:hover, #rezform button[type='reset']:active, #rezform button[type='reset']:focus  {
+  color: #000;
+}
+
+#rezform button[type='submit'] {
+  background-color: #e8a016;
+  border: #e8a016;
+  color: #f0f0f0;
+  padding: 0.8em;
+}
+
+#rezform button[type='submit']:hover, #rezform button[type='submit']:active, #rezform button[type='submit']:focus {
+  background-color: #000;
+  border: #000;
+}
+
+
+@media screen and (max-width: 35em) {
+  .rezformwrapper {
+    padding: 0.25em;
+  }
+
+  #rezform {
+    font-size: 80%
+  }
+
+  #rezform button {
+    width: 75px;
+  }
+
+}
+

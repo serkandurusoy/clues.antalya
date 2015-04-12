@@ -1,0 +1,42 @@
+<template name="rezform">
+  <div class="rezformcontainer">
+    <div class="rezformwrapper">
+      {{#if tooFrequent}}
+        <div class="uyari">
+          Çok kısa süre içinde arka arkaya çok sayıda rezervasyon işlemi yaptınız, lütfen bekleyip daha sonra tekrar deneyiniz.
+        </div>
+      {{else}}
+        {{#if tooMuch}}
+          <div class="uyari">
+            Internet üzerinden bir ay içerisinde arka arkaya verilebilecek rezervasyon limitini aştınız. Yeni bir rezervasyon daha yapmak için lütfen telefon açınız.
+          </div>
+        {{else}}
+          <form id="rezform">
+            <div class="{{#if baskasiAldi}}baskasiAldi{{/if}}"><strong>Rezervasyon tarihi</strong>{{seciliTarih}}</div>
+            <div class="{{#if baskasiAldi}}baskasiAldi{{/if}}"><strong>Rezervasyon saati</strong>{{seciliSaat}}</div>
+            <div><input type="text" name="isim" required min="5" maxlength="250" placeholder="Adın ve soyadın" tabindex="1"></div>
+            <div><span class="prefix">+ 90</span><input type="tel" name="telefon" required min="10" maxlength="10" placeholder="Cep telefonun" tabindex="2"></div>
+            <div><input type="email" name="eposta" required placeholder="E-posta adresin" tabindex="3"></div>
+            <div>
+              <select name="sayi" class="{{stateSayi}}" required placeholder="Kişi sayısı" tabindex="4">
+                <option value="">Kişi sayısı</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> <em>{{seciliFiyat}}TL</em>
+            </div>
+            <div><textarea name="not" maxlength="1000" placeholder="Varsa özellikle belirtmek istediklerin" tabindex="5"></textarea></div>
+            <div>
+              {{#if formHatali}}
+                <span class="formHatali">formda hatalar var</span>
+              {{/if}}
+              <button type="reset" disabled="{{inProgress}}" tabindex="-1">Vazgeç</button>
+              <button type="submit" disabled="{{inProgress}}" tabindex="6">{{#if inProgress}}İletiliyor{{else}}Onayla{{/if}}</button>
+            </div>
+          </form>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+</template>

@@ -1,0 +1,82 @@
+#kurallar li {
+  list-style-type: none;
+  font-size: 1.3em;
+  line-height: 1.75;
+  text-align: justify;
+  margin: 2em 0;
+}
+
+#kurallar aside {
+  position: relative;
+}
+
+#kurallar .dilek, #kurallar .dilekfirst {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  color: #6e6e6e;
+  font-size: 5em;
+  text-align: right;
+  line-height: 0.9;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 64em) {
+  #kurallar ul {
+    padding-left: 30px;
+  }
+
+  #kurallar li {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 1.6em 0;
+  }
+
+  #kurallar .dilek, #kurallar .dilekfirst {
+    font-size: 4em;
+  }
+
+}
+
+@media screen and (max-width: 48em) {
+  #kurallar ul {
+    padding-left: 20px;
+  }
+
+  #kurallar li {
+    font-size: 1em;
+    line-height: 1.35;
+    margin: 1.6em 0;
+  }
+
+  #kurallar .dilek, #kurallar .dilekfirst {
+    font-size: 2.8em;
+  }
+
+}
+
+@media screen and (max-width: 35em) {
+  #kurallar aside {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  #kurallar ul {
+    padding: 0;
+  }
+
+  #kurallar li {
+    font-size: 0.9em;
+    line-height: 1.35;
+    margin: 1.2em 0;
+  }
+
+  #kurallar .dilekfirst {
+    display: none;
+  }
+
+  #kurallar .dilek {
+    position: static;
+  }
+
+}

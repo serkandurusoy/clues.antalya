@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8em;
+  background-color: #111;
+}
+
+.navbar .logo {
+  display: inline-block;
+  padding: 2em;
+  float: left;
+}
+
+.navbar .logo:hover {
+  cursor: pointer;
+}
+
+.navbar .logo:hover #clues-logo .letter,
+.navbar .logo:hover #clues-logo .stroke {
+  fill: #fff;
+}
+
+#clues-logo {
+  width: 16em;
+  height: 4em;
+}
+
+.navbar .menu {
+  float: right;
+}
+
+.menu .horizontal li {
+  display: inline-block;
+  padding: 2em;
+  list-style: none;
+  font-size: 1.2em;
+}
+
+.menu li {
+  list-style: none;
+  color: #f0f0f0;
+  font-weight: 700;
+}
+
+.menu li:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 64em) {
+  .navbar {
+    height: 6em;
+  }
+
+  .navbar .logo {
+    padding: 1.5em 2em;
+  }
+
+  #clues-logo {
+    width: 12em;
+    height: 3em;
+  }
+
+  .menu .horizontal li {
+    padding-left: 0;
+    padding-top: 1.4em;
+    font-size: 1em;
+  }
+
+}
+
+@media screen and (max-width: 48em) {
+  .navbar {
+    height: 4em;
+  }
+
+  .navbar .logo {
+    padding: 1em;
+  }
+
+  #clues-logo {
+    width: 8em;
+    height: 2em;
+  }
+
+  .menu .horizontal li {
+    padding: 0.5em 1em 0 0;
+    font-size: 0.9em;
+  }
+
+}
+
+@media screen and (max-width: 35em) {
+  .menu .horizontal {
+    display: none;
+  }
+
+  .menu .overlay.menuClosed {
+    display: none;
+  }
+
+  .menu .overlay.menuOpen {
+    display: block;
+    position: fixed;
+    z-index: -1;
+    margin: 2em 0 0 0;
+    padding: 0 0.5em 0.5em 0.5em;
+    top: 0;
+    border-top: thin solid #f0f0f0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+  }
+
+  .menu .overlay li {
+    font-size: 0.45em;
+    padding: 2em 0 0.5em 0;
+    border-bottom: thin solid #f0f0f0;
+  }
+
+  .menu .overlay li:hover {
+    border-bottom-color: #fff;
+  }
+
+}

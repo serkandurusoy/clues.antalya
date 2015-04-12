@@ -1,0 +1,20 @@
+<template name="navbar">
+  <header class="navbar">
+    <div class="logo" data-target="#nedir">
+      {{>clueslogo}}
+    </div>
+    <nav class="menu">
+      {{>burger}}
+      {{>menu}}
+    </nav>
+  </header>
+</template>
+
+<template name="menu">
+  <ul class="{{menuType}} {{menuStatus}}">
+    <li data-target="#nedir">Nedir?</li>
+    <li data-target="#kurallar">Kurallar</li>
+    <li data-target="#rezervasyon">Rezervasyon</li>
+    <li data-target="#iletisim">İletişim</li>
+  </ul>
+</template>

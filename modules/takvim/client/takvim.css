@@ -1,0 +1,201 @@
+.scrollwrapper {
+  width: 100%;
+  height: 1000px;
+  overflow: hidden;
+  margin: 1.5em 0;
+}
+
+.takvimwrapper {
+  width: 100%;
+  height: 1030px;
+  padding-bottom: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+#takvim {
+  width: 2420px;
+  height: 1000px;
+  background-color: #e6e7e8;
+}
+
+.gun {
+  float: left;
+  width: 80px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.gun .display {
+  width: 60px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.gun .display.htop {
+  height: 60px;
+  padding-top: 20px;
+}
+
+.gun .display.hbottom {
+  height: 50px;
+}
+
+.gun .display .smaller {
+  display: block;
+  text-align: center;
+  font-size: 75%;
+  margin-top: -4px;
+}
+
+.gun.haftasonu {
+  background-color: #c5c5c5;
+}
+
+.gun.haftasonu+.gun.haftasonu {
+  border-left: thin solid #e6e7e8;
+}
+
+.gun:first-child {
+  margin-left: 10px;
+}
+
+.gun:last-child {
+  margin-right: 10px;
+}
+
+#takvim:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.dilim {
+  height: 60px;
+  width: 60px;
+  font-size: 10px;
+  line-height: 10px;
+  text-align: center;
+  padding-top: 25px;
+  background-color: #fff;
+  color: #bcbec0;
+  margin: 20px 0;
+}
+
+.gun div:nth-of-type(2) {
+  margin-top: 10px;
+}
+
+.dilim.bos {
+  cursor: pointer;
+}
+
+.dilim.bos:hover {
+  border: thin solid #e8a016;
+  padding-top: 24px;
+}
+
+.dilim.kampanyali {
+  background-color: #5268a0;
+  cursor: pointer;
+}
+
+.dilim.kampanyali:hover {
+  border: thin solid #38476e;
+  padding-top: 24px;
+}
+
+.dilim.dolu {
+  color: #f0f0f0;
+  background-color: #e8a016;
+  cursor: not-allowed;
+}
+
+.dilim.gece {
+  color: #c5c5c5;
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.dilim[data-kendiRez='evet'] {
+  background-color: #808000;
+}
+
+.dilim.gecmis {
+  color: #e6e7e8;
+  background-color: #e6e7e8;
+}
+
+.gun.haftasonu .dilim.gecmis {
+  color: #c5c5c5;
+  background-color: #c5c5c5;
+}
+
+.scroll {
+  background-color: #c5c5c5;
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  padding: 2px 3px;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.right {
+  border-width: 18px 0 18px 54px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+.left {
+  border-width: 18px 54px 18px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
+
+.scroller {
+  float: right;
+}
+
+@media screen and (max-width: 48em) {
+  .scroller {
+    position: relative;
+    top: 40px;
+  }
+
+  .scroller.sbottom {
+    top: 0;
+  }
+
+  .scroll {
+    width: 40px;
+    height: 30px;
+    padding: 2px 2px;
+  }
+
+  .right {
+    border-width: 13px 0 13px 36px;
+  }
+
+  .left {
+    border-width: 13px 36px 13px 0;
+  }
+
+
+}
+
+@media screen and (max-width: 35em) {
+  .scroller {
+    top: 10px;
+  }
+
+  .scroller.sbottom {
+    top: 0;
+  }
+
+}

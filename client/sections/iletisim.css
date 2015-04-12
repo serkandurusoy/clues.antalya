@@ -1,0 +1,91 @@
+.googlemapcontainer {
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 40%;
+  position: relative;
+}
+
+.googlemapcontainer > .mapcontent {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+
+#iletisim p {
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 1.75;
+}
+
+.pipe, .space {
+  display: inline-block;
+  width: 32px;
+  text-align: center;
+}
+
+#iletisim a {
+  color: #231f1f;
+}
+
+#iletisim a:hover {
+  color: #000000;
+}
+
+.social a {
+  display: inline-block;
+  height: 32px;
+  margin: 10px 10px 48px 10px;
+}
+
+.social a:hover svg path {
+  fill: #000 !important;
+}
+
+@media screen and (max-width: 64em) {
+  .googlemapcontainer {
+    padding-bottom: 40%;
+  }
+
+  #iletisim p {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .googlemapcontainer {
+    padding-bottom: 80%;
+  }
+
+  #iletisim p {
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.35;
+  }
+
+  .pipe, .space {
+    display: none;
+  }
+
+  .tel, .istanbul, .email {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+}
+
+@media screen and (max-width: 35em) {
+  .googlemapcontainer {
+    padding-bottom: 120%;
+  }
+
+  #iletisim p {
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.35;
+  }
+
+
+}

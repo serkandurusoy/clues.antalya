@@ -1,0 +1,28 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+audit-argument-checks
+service-configuration
+email
+accounts-google
+dburles:collection-helpers
+matb33:collection-hooks
+todda00:collection-revisions
+dburles:google-maps
+momentjs:moment
+rzymek:moment-locale-tr
+mizzao:timesync
+percolate:synced-cron
+meteorhacks:unblock
+iron:router
+okgrow:iron-router-autoscroll
+gadicohen:headers
+reywood:iron-router-ga
+awatson1978:browser-detection
+fastclick
+gadicohen:sitemaps
+meteorhacks:sikka

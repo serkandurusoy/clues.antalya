@@ -1,0 +1,74 @@
+.legend {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  top: 0.5em;
+}
+
+.legendKampanyali {
+  background-color: #5268a0;
+}
+
+.l2 {
+  margin-left: 1em;
+}
+
+@media screen and (max-width: 48em) {
+  .l1, .l2 {
+    margin-left: 0;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 35em) {
+  .legend {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+}
+
+.legendDolu {
+  background-color: #e8a016;
+}
+
+#rezervasyon p {
+  font-size: 1em;
+  line-height: 1.35;
+  text-align: left;
+  margin: 1em 0;
+}
+
+#rezervasyon p:first-letter {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 64em) {
+  #rezervasyon p {
+    margin: 0.8em 0;
+  }
+
+  #rezervasyon span {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  #rezervasyon p {
+    font-size: 0.8em;
+  }
+
+  #rezervasyon span {
+    font-size: 0.8em;
+  }
+
+}
+
+@media screen and (max-width: 35em) {
+  #rezervasyon span {
+    font-size: 0.6em;
+  }
+
+}

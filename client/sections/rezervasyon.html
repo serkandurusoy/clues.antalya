@@ -1,0 +1,15 @@
+<template name="rezervasyon">
+  <section id="rezervasyon">
+    {{>scrollerTop}}
+    <span class="l1"><span class="legend legendKampanyali"></span>Kampanyalı ücret geçerlidir.</span>
+    <span class="l2"><span class="legend legendDolu"></span>Rezervasyon saati doludur.</span>
+    {{>takvim}}
+    {{>scrollerBottom}}
+    <p>00:30 seansı kişi sayısından bağımsız {{fiyatGece}}TL'dir ve telefonla rezervasyon yapılmalıdır.</p>
+    <p>Kampanyalı ücret, kişi sayısından bağımsız olarak {{fiyatKampanya}}TL'dir.</p>
+    <p>Normal seans ücretleri 2 kişi için {{fiyatGun2}}TL, 3 kişi {{fiyatGun3}}TL, 4 kişi {{fiyatGun4}}TL ve 5 kişi için de {{fiyatGun5}}TL'dir.</p>
+    <p>Bir aydan daha ileri tarihe rezervasyon yapmak için lütfen telefon açın.</p>
+    <p>Kredi kartı geçerlidir.</p>
+  </section>
+</template>
+

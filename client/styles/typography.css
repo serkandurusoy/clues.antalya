@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700&subset=latin,latin-ext);
+
+html, button, input, select, textarea {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  color: #231f1f;
+}
+
+optgroup,
+b,
+strong,
+em {
+  font-weight: 700;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+em {
+  font-style: normal;
+}

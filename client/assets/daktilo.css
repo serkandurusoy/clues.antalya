@@ -1,0 +1,14 @@
+#daktilodiv {
+  height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 160%;
+}
+
+#daktilo {
+  max-width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

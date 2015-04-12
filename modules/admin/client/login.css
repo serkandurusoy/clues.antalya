@@ -1,0 +1,43 @@
+#login {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #111111;
+}
+
+#login .loginContainer {
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+#lockdiv {
+  height: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+#lock {
+  max-width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#lockdiv svg path {
+  fill: #f0f0f0;
+}
+
+[data-target="login"]:hover {
+  cursor: pointer;
+}
+
+#lockdiv svg:hover path {
+  fill: #e8a016;
+}

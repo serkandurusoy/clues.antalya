@@ -1,0 +1,36 @@
+<template name="takvim">
+  <div class="scrollwrapper">
+    <div class="takvimwrapper">
+      <div id="takvim">
+        {{#each gun}}
+          <div class="gun {{guntipi}}" data-tarih="{{tarih}}">
+            <div class="display htop">{{{display}}}</div>
+            {{#each dilim}}
+              <div {{attrs}} class="dilim thin {{durum}}" data-saat="{{saat}}" data-kendiRez="{{kendiRez}}">
+                {{saat}}
+              </div>
+            {{/each}}
+            <div class="display hbottom">{{{display}}}</div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="scrollerTop">
+  <span class="scroller">
+    {{>scrollerInner}}
+  </span>
+</template>
+
+<template name="scrollerBottom">
+  <span class="scroller sbottom">
+    {{>scrollerInner}}
+  </span>
+</template>
+
+<template name="scrollerInner">
+  <span class="scroll goleft"><div class="arrow left"></div></span>
+  <span class="scroll goright"><div class="arrow right"></div></span>
+</template>
