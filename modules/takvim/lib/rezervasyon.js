@@ -104,7 +104,7 @@ Meteor.methods({
         + '\n\n'
         + bilgiler.sayi + ' kişilik Clues Antalya rezervasyonunuz ' + moment(tarih,'YYYY-MM-DD').format('DD MMMM YYYY') + ' saat ' + saat + ' için alındı.'
         + '\n\n'
-        + fiyat + 'TL ücretinizi geldiğinizde nakit veya kredi kartınız ile ödeyebilirsin.'
+        + fiyat + 'TL ücretinizi geldiğinizde nakit veya kredi kartın ile ödeyebilirsin.'
         + '\n\n'
         + 'Bir değişiklik istemeniz durumunda, bize bu maile yanıt vererek veya +90 (532) 584 9795 numaralı telefonumuzdan arayarak ulaşabilirsin.'
         + '\n\n'

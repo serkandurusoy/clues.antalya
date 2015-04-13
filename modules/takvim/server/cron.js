@@ -108,17 +108,21 @@ Meteor.methods({
 
     });
 
-    Email.send({
-      to: 'info@cluesantalya.com',
-      from: 'info@cluesantalya.com',
-      subject: '[REZ] Yakındaki rezervasyonlar',
-      text: 'Önümüzdeki üç günün rezervasyonları aşağıdaki gibidir.'
-      + '\n\n'
-      + satir
-      + '\n\n'
-      + 'http://www.cluesantalya.com/rezervasyonlar/ ekranından ayrıntıları görebilir ve işlem yapabilirsin.'
-      + '\n\n'
-    });
+    if (satir.length > 0) {
+
+      Email.send({
+        to: 'info@cluesantalya.com',
+        from: 'info@cluesantalya.com',
+        subject: '[REZ] Yakındaki rezervasyonlar',
+        text: 'Önümüzdeki üç günün rezervasyonları aşağıdaki gibidir.'
+        + '\n\n'
+        + satir
+        + '\n\n'
+        + 'http://www.cluesantalya.com/rezervasyonlar/ ekranından ayrıntıları görebilir ve işlem yapabilirsin.'
+        + '\n\n'
+      });
+
+    }
 
   }
 });

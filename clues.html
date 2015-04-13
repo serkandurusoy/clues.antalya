@@ -3,6 +3,8 @@
 </template>
 
 <template name="home">
+{{#if connected}}
+
   {{>navbar}}
   {{>nedir}}
   {{>kurallar}}
@@ -11,4 +13,10 @@
   {{#if rezTriggered}}
     {{>rezform}}
   {{/if}}
+
+{{else}}
+
+  {{>loading}}
+
+{{/if}}
 </template>
