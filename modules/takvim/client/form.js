@@ -172,7 +172,7 @@ Template.rezform.events({
         Session.set('formHatali', true);
         Session.set('inProgress', null);
       } else {
-        Meteor.call('Rezervasyon.insert', tarih, saat, bilgiler, function(e,r) {
+        Meteor.call('Rezervasyon.insert', tarih, saat, bilgiler, 'yok', function(e,r) {
           if (e) {
             Session.set('formHatali', true);
             Session.set('inProgress', null);

@@ -2,9 +2,17 @@ Rezervasyon = new Mongo.Collection('rezervasyon');
 Rezervasyon.attachCollectionRevisions();
 
 Meteor.methods({
-  'Rezervasyon.insert': function(tarih,saat,bilgiler) {
+  'Rezervasyon.insert': function(tarih,saat,bilgiler,ozelfiyat) {
     checkTarihSaat(tarih,saat);
     checkBilgiler(bilgiler);
+    check(ozelfiyat, Match.Where(function(ozelfiyat){
+      if (ozelfiyat === 'yok') {
+        return true;
+      } else {
+        check(ozelfiyat, Match.Integer);
+        return !!Meteor.userId() && parseInt(ozelfiyat) >= parseInt(0) && parseInt(ozelfiyat) <= parseInt(Fiyatlar.findOne({},{sort: {fiyat: -1}}).fiyat);
+      }
+    }));
 
     bilgiDuzenle(bilgiler);
 
@@ -52,7 +60,7 @@ Meteor.methods({
 
     var tip = kayitAra(tarih, saat, 'kampanyali') ? 'Kampanyalı' : 'Normal';
 
-    var fiyat = parseInt( tip === 'Kampanyalı' ? Fiyatlar.findOne({tip: 'kampanya'}).fiyat : saat === '00:30' ? Fiyatlar.findOne({tip: 'gece'}).fiyat : Fiyatlar.findOne({tip: 'gun' + bilgiler.sayi}).fiyat );
+    var fiyat = ozelfiyat !== 'yok' ? parseInt(ozelfiyat) : parseInt( tip === 'Kampanyalı' ? Fiyatlar.findOne({tip: 'kampanya'}).fiyat : saat === '00:30' ? Fiyatlar.findOne({tip: 'gece'}).fiyat : Fiyatlar.findOne({tip: 'gun' + bilgiler.sayi}).fiyat );
 
     var rezId = Rezervasyon.insert({
       zaman: new Date,
@@ -121,11 +129,19 @@ Meteor.methods({
     return rezId;
 
   },
-  'Rezervasyon.update': function(tarih,saat,yenitarih,yenisaat,yenibilgiler) {
+  'Rezervasyon.update': function(tarih,saat,yenitarih,yenisaat,yenibilgiler,yeniozelfiyat) {
     check(Meteor.userId(), String);
     checkTarihSaat(tarih,saat);
     checkTarihSaat(yenitarih,yenisaat);
     checkBilgiler(yenibilgiler);
+    check(yeniozelfiyat, Match.Where(function(yeniozelfiyat){
+      if (yeniozelfiyat === 'yok') {
+        return true;
+      } else {
+        check(yeniozelfiyat, Match.Integer);
+        return !!Meteor.userId() && parseInt(yeniozelfiyat) >= parseInt(0) && parseInt(yeniozelfiyat) <= parseInt(Fiyatlar.findOne({},{sort: {fiyat: -1}}).fiyat);
+      }
+    }));
 
     checkUnique(yenitarih, yenisaat, 'dolu');
     checkUnique(yenitarih, yenisaat, 'tadilat');
@@ -135,7 +151,7 @@ Meteor.methods({
       var rez = kayitAra(tarih, saat, 'dolu');
 
       var tip = kayitAra(yenitarih, yenisaat, 'kampanyali') ? 'Kampanyalı' : 'Normal';
-      var fiyat = parseInt( tip === 'Kampanyalı' ? Fiyatlar.findOne({tip: 'kampanya'}).fiyat : yenisaat === '00:30' ? Fiyatlar.findOne({tip: 'gece'}).fiyat : Fiyatlar.findOne({tip: 'gun' + yenibilgiler.sayi}).fiyat );
+      var fiyat = yeniozelfiyat !== 'yok' ? parseInt(yeniozelfiyat) : parseInt( tip === 'Kampanyalı' ? Fiyatlar.findOne({tip: 'kampanya'}).fiyat : yenisaat === '00:30' ? Fiyatlar.findOne({tip: 'gece'}).fiyat : Fiyatlar.findOne({tip: 'gun' + yenibilgiler.sayi}).fiyat );
 
       bilgiDuzenle(yenibilgiler);
 
@@ -353,7 +369,7 @@ var checkBilgiler = function(bilgiler) {
       return testEmail(eposta);
     }),
     sayi: Match.Where(function(sayi) {
-      check(sayi, Number);
+      check(sayi, Match.Integer);
       return 2 <= sayi && sayi <= 5;
     }),
     not: Match.Where(function(not) {

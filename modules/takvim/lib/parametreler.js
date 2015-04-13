@@ -12,7 +12,7 @@ Meteor.methods({
       })
     );
     check(fiyat, Match.Where(function(fiyat) {
-        check(fiyat, Number);
+        check(fiyat, Match.Integer);
         return 50 <= fiyat && fiyat <= 500;
       })
     );
