@@ -11,7 +11,7 @@ formatPhone = function(phone) {
 
 
 testEmail = function(eposta) {
-  return /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|biz|info|io|aero|edu|de|co\.uk|com\.tr|org\.tr|k12\.tr|bel\.tr|gov\.tr|av\.tr|net\.tr|gen\.tr|edu\.tr|web\.tr)\b$/.test(eposta)
+  return eposta.length <= 250 && /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|biz|info|io|aero|edu|de|co\.uk|com\.tr|org\.tr|k12\.tr|bel\.tr|gov\.tr|av\.tr|net\.tr|gen\.tr|edu\.tr|web\.tr)\b$/.test(eposta)
 };
 
 testTel = function(tel) {

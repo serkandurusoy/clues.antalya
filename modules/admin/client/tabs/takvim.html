@@ -9,25 +9,22 @@
   <div id="takvimForm" class="grid">
     <form>
       <div class="g-3-12">
-        <label for="fTarih">Tarih</label>
         <select name="ftarih" id="ftarih" required>
-          <option>Tarih seç</option>
+          <option value="">Tarih</option>
           {{#each tarihler}}
             <option value="{{value}}">{{display}}</option>
           {{/each}}
         </select>
       </div>
       <div class="g-3-12">
-        <label for="fsaat">Saat</label>
         <select name="fsaat" id="fsaat" required>
-          <option value="">Saat seç</option>
+          <option value="">Saat</option>
           {{#each saatler}}
             <option value="{{this}}">{{this}}</option>
           {{/each}}
         </select>
       </div>
       <div class="g-3-12">
-        <label for="fdurum">Tip seç</label>
         <select name="fdurum" id="fdurum" required>
           <option value="">Tip</option>
           <option value="kampanyali">Kampanya</option>
@@ -35,8 +32,7 @@
         </select>
       </div>
       <div class="g-3-12">
-        <label class="buttonlabel">&nbsp;</label>
-        <button type="submit">Ekle</button>
+        <button type="submit">Kaydet</button>
       </div>
       {{#if error}}
         <div class="g-12-12 formHatali">formda hata var, seçtiğin seansı kontrol et</div>

@@ -1,6 +1,12 @@
 Rezervasyon = new Mongo.Collection('rezervasyon');
 Rezervasyon.attachCollectionRevisions();
 
+Rezervasyon.helpers({
+  musterisi: function() {
+    return Musteriler.findOne({$or: [{telefon: this.bilgiler.telefon},{eposta: this.bilgiler.eposta}]});
+  }
+});
+
 Meteor.methods({
   'Rezervasyon.insert': function(tarih,saat,bilgiler,ozelfiyat) {
     checkTarihSaat(tarih,saat);

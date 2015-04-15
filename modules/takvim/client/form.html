@@ -16,7 +16,7 @@
             <div class="{{#if baskasiAldi}}baskasiAldi{{/if}}"><strong>Rezervasyon saati</strong>{{seciliSaat}}</div>
             <div><input type="text" name="isim" required min="5" maxlength="250" placeholder="Adın ve soyadın" tabindex="1"></div>
             <div><span class="prefix">+ 90</span><input type="tel" name="telefon" required min="10" maxlength="10" placeholder="Cep telefonun" tabindex="2"></div>
-            <div><input type="email" name="eposta" required placeholder="E-posta adresin" tabindex="3"></div>
+            <div><input type="email" name="eposta" required placeholder="E-posta adresin" maxlength="250" tabindex="3"></div>
             <div>
               <select name="sayi" class="{{stateSayi}}" required placeholder="Kişi sayısı" tabindex="4">
                 <option value="">Kişi sayısı</option>

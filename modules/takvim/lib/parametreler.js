@@ -54,7 +54,7 @@ Musteriler.attachCollectionRevisions();
 Musteriler.helpers({
   rezervasyonlari: function() {
     return Rezervasyon.find({'bilgiler.eposta': this.eposta});
-  },
+  }
 });
 
 Meteor.methods({

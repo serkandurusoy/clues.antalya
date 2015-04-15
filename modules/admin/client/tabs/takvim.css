@@ -1,8 +1,12 @@
-#takvimForm label, #takvimForm input, #takvimForm select, #takvimForm button, .tlg span {
+#takvimForm input, #takvimForm select, #takvimForm button, .tlg span {
   width: 90%;
   display: block;
   padding: 4px;
   margin: 4px;
+}
+
+#takvimForm form {
+  padding-top: 12px;
 }
 
 #takvimForm .formHatali {
@@ -13,12 +17,12 @@
 }
 
 @media screen and (max-width: 35em) {
-  #takvimForm label, #takvimForm input, #takvimForm select, #takvimForm button {
+  #takvimForm input, #takvimForm select, #takvimForm button {
     width: 100%;
   }
-
-  #takvimForm .buttonlabel {
-    height: 10px;
+  #takvimForm button {
+    margin-top: 16px;
+    margin-bottom: 24px;
   }
 }
 

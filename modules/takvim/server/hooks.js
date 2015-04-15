@@ -7,7 +7,7 @@ Rezervasyon.after.insert(function(userId, doc) {
           isim: doc.bilgiler.isim,
           eposta: doc.bilgiler.eposta,
           telefon: doc.bilgiler.telefon,
-          not: ' ',
+          not: 'Herhangi bir not bırakılmadı.',
           rez: 1,
           kisi: doc.bilgiler.sayi,
           ciro: doc.fiyat
@@ -43,16 +43,18 @@ Rezervasyon.after.update(function (userId, doc, fieldNames, modifier, options) {
 
     var eskiMusteri = Musteriler.findOne({ $or: [ {eposta: this.previous.bilgiler.eposta}, {telefon: this.previous.bilgiler.telefon} ] });
 
-    Musteriler.update(
-      {_id: eskiMusteri._id},
-      {
-        $set: {
-          rez: parseInt(eskiMusteri.rez) - 1,
-          kisi: parseInt(eskiMusteri.kisi) - parseInt(this.previous.bilgiler.sayi),
-          ciro: parseInt(eskiMusteri.ciro) - parseInt(this.previous.fiyat)
+    if (eskiMusteri) {
+      Musteriler.update(
+        {_id: eskiMusteri._id},
+        {
+          $set: {
+            rez: parseInt(eskiMusteri.rez) - 1,
+            kisi: parseInt(eskiMusteri.kisi) - parseInt(this.previous.bilgiler.sayi),
+            ciro: parseInt(eskiMusteri.ciro) - parseInt(this.previous.fiyat)
+          }
         }
-      }
-    );
+      );
+    }
 
     var yeniMusteri = Musteriler.findOne({ $or: [ {eposta: doc.bilgiler.eposta}, {telefon: doc.bilgiler.telefon} ] });
 

@@ -1,5 +1,62 @@
 <template name="tabmusteri">
   <div id="tabmusteri">
-    Müşteriler tab
+    {{#if showform}}
+      {{>tabmusteriForm musteri}}
+    {{else}}
+      {{>tabmusteriList}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="tabmusteriForm">
+  <div id="musteriForm" class="grid">
+    <form>
+      <div class="g-12-12 vazgecwrap">
+        <span class="vazgec">vazgeç</span>
+      </div>
+      <div class="g-12-12">
+        <input name="isim" value="{{isim}}" id="isim" type="text" placeholder="Ad ve soyad" min="5" maxlength="250" required>
+      </div>
+      <div class="g-12-12">
+        <div><span class="prefix">+ 90</span><input name="telefon" value="{{barePhone telefon}}" id="telefon" type="tel" placeholder="Cep telefonu" min="10" maxlength="10" required></div>
+      </div>
+      <div class="g-12-12">
+        <input name="eposta" value="{{eposta}}" id="eposta" type="email" placeholder="E-posta adresi" maxlength="250" required>
+      </div>
+      <div class="g-12-12">
+        <textarea name="not" maxlength="1000" placeholder="Varsa müşteriyle ilgili özel notlar">{{not}}</textarea>
+      </div>
+      <div class="g-12-12">
+        <button type="submit">Kaydet</button>
+      </div>
+      {{#if error}}
+        <div class="g-12-12 formHatali">formda hatalar var</div>
+      {{/if}}
+    </form>
+  </div>
+</template>
+
+<template name="tabmusteriList">
+  <div class="g-12-12 butonlar"><span class="button musteriekle">Müşteri Ekle</span></div>
+  <div id="musteriList" class="grid">
+    {{#each musteriler}}
+      {{>musteri this}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="musteri">
+  <div class="musteri grid" title="{{isim}}">
+    <div class="g-6-12 selectable">{{isim}}{{#if rez}}<br><span class="notlar">{{rez}} kere | {{kisi}} kişi | {{ciro}}TL</span>{{/if}}</div>
+    <div class="g-6-12 selectable"><a class="noprop" target="_blank" href="mailto:{{eposta}}">{{eposta}}</a><br><a class="noprop" target="_blank" href="tel:{{telefon}}">{{formatTel telefon}}</a></div>
+    {{#if showDetail}}
+      <div class="g-12-12 detay butonlar"><span class="guncelle button noprop">Güncelle</span><span class="rezyap button noprop">Rezervasyon</span></div>
+      {{#if not}}<div class="g-12-12 detay notlar">Özel notlar: {{not}}</div>{{/if}}
+      {{#if rez}}
+        {{#each rezervasyonlari}}
+          <div class="g-12-12 detay">{{formatTarih tarih}} {{saat}} {{bilgiler.sayi}} kişi {{fiyat}}TL. {{tip}} satış. <span class="notlar">{{bilgiler.not}}</span></div>
+        {{/each}}
+      {{/if}}
+    {{/if}}
   </div>
 </template>

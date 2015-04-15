@@ -1,0 +1,113 @@
+#musteriForm label, #musteriForm input, #musteriForm textarea, #musteriForm button, #musteriForm .prefix {
+  width: 100%;
+  display: block;
+  padding: 4px;
+  margin: 4px;
+}
+
+#musteriForm .prefix {
+  width: 12%;
+  text-align: center;
+  float: left;
+  margin: 4px 0;
+}
+
+#musteriForm input#telefon {
+  width: 88%;
+  float: right;
+  margin: 4px -4px 4px 0;
+}
+
+#musteriForm button {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+#musteriForm .formHatali {
+  font-size: 100%;
+  text-align:center;
+  padding: 16px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#musteriList .musteri {
+  padding: 12px;
+}
+
+.musteri .detay {
+  padding: 8px;
+}
+
+.detay {
+  margin-top: 16px;
+}
+
+.detay ~ .detay {
+  margin-top: 0;
+}
+
+.musteri .detay:nth-child(2n) {
+  background-color: rgba(240,240,240,0.4);
+}
+
+#musteriList .musteri:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+
+#musteriList .musteri:nth-child(2n) .detay:nth-child(2n) {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.showDetail, .guncelle {
+  display: inline-block;
+
+}
+
+.notlar {
+  font-style: italic;
+  font-size: 90%;
+}
+
+.musteri {
+  cursor: pointer;
+}
+
+.butonlar {
+  text-align: center;
+}
+
+.butonlar .button {
+  display: inline-block;
+  padding: 4px 6px;
+  background-color: #e8a016;
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+.rezyap.button {
+  margin-left: 12px;
+}
+
+.butonlar .button:hover {
+  background-color: #111111;
+}
+
+.musteriekle {
+  margin: 16px 0 24px 0;
+}
+
+.vazgecwrap {
+  text-align: center;
+}
+
+.vazgec {
+  cursor: pointer;
+  display: inline-block;
+  padding: 12px;
+  text-decoration: underline;
+}
+
+.vazgec:hover {
+  color: #000;
+}
