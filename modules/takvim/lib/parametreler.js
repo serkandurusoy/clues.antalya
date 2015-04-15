@@ -20,7 +20,7 @@ Meteor.methods({
     if (Meteor.userId()) {
       var fiyatId = Fiyatlar.update(
         {tip: tip},
-        {$set: {tip: tip, fiyat: fiyat}}
+        {$set: {fiyat: fiyat}}
       );
       return fiyatId;
     }
@@ -40,7 +40,7 @@ Meteor.methods({
     if (Meteor.userId()) {
       var parametreId = Parametreler.update(
         {isim: isim},
-        {$set: {tip: isim, icerik: icerik}}
+        {$set: {icerik: icerik}}
       );
       return parametreId;
     }

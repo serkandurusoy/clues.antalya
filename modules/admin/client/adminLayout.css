@@ -1,0 +1,80 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700&subset=latin,latin-ext);
+
+#admin, #admin input, #admin select, #admin button, #admin textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 30em) {
+  #admin {
+    font-size: 12px;
+  }
+}
+
+.tabnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  height: 50px;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 20em) {
+  .tabnav {
+    height: 32px;
+    padding-top: 8px;
+  }
+}
+
+.tab {
+  display: inline-block;
+  font-family: 'Roboto Slab', serif;
+  padding: 12px 10px 8px 10px;
+  color: #231f1f;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+@media screen and (max-width: 20em) {
+  .tab {
+    padding: 8px 6px 4px 6px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .tab {
+    margin-right: 16px;
+  }
+}
+
+.tab:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.selectedTab {
+  background-color: #231f1f;
+  color: #f0f0f0;
+  cursor: default;
+}
+
+.selectedTab:hover {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+.tabcontent {
+  padding: 60px 10px 10px 10px;
+  max-width: 48em;
+}
+
+@media screen and (max-width: 20em) {
+  .tabcontent {
+    padding: 38px 6px 6px 6px;
+  }
+}

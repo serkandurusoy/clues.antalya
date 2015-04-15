@@ -19,7 +19,7 @@ section {
 .g-11-12 { width: 91.6666666666667%;}
 .g-12-12 { width: 100%;}
 
-section:after {
+.grid:after, section:after {
   content: "";
   display: table;
   clear: both;

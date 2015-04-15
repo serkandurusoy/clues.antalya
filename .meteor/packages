@@ -8,6 +8,7 @@ meteor-platform
 audit-argument-checks
 service-configuration
 email
+reactive-var
 accounts-google
 dburles:collection-helpers
 matb33:collection-hooks
@@ -28,4 +29,3 @@ gadicohen:sitemaps
 meteorhacks:sikka
 underscorestring:underscore.string
 spiderable
-appcache

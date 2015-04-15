@@ -1,0 +1,62 @@
+#takvimForm label, #takvimForm input, #takvimForm select, #takvimForm button, .tlg span {
+  width: 90%;
+  display: block;
+  padding: 4px;
+  margin: 4px;
+}
+
+#takvimForm .formHatali {
+  font-size: 100%;
+  text-align:center;
+  padding: 16px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 35em) {
+  #takvimForm label, #takvimForm input, #takvimForm select, #takvimForm button {
+    width: 100%;
+  }
+
+  #takvimForm .buttonlabel {
+    height: 10px;
+  }
+}
+
+#takvimList {
+  margin-top: 24px;
+}
+
+.takvimListGun {
+  padding: 12px 0;
+}
+
+.takvimListGun:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+
+#takvimList .gecmis {
+  color: #c5c5c5;
+}
+
+.tlg  {
+  width: 25%;
+  float: left;
+}
+
+.tlg span.kampanyali:before {
+  content: 'Kampanyalı'
+}
+
+.tlg span.tadilat:before {
+  content: 'Tadilatlı'
+}
+
+.tlg.button span.sil {
+  text-align: center;
+  cursor: pointer;
+}
+
+.tlg.button span.sil:hover {
+  background-color: #111111;
+  color: #f0f0f0;
+}

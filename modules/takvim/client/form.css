@@ -46,11 +46,11 @@
   width: 10em;
 }
 
-#rezform .error {
+.error {
   border: thin solid #ff4500;
 }
 
-#rezform .formHatali {
+.formHatali {
   color: #ff4500;
   font-size: 80%;
 }
@@ -71,21 +71,21 @@ input, select, textarea, button {
   background-color: #fff;
 }
 
-#rezform input:focus, #rezform select:focus, #rezform textarea:focus {
+input:focus, select:focus, textarea:focus {
   background-color: #f0f0f0;
 }
 
-#rezform select {
+select {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="20" width="24"><polygon points="2,2 18,2 10,18" style="fill:#c5c5c5;stroke:#c5c5c5;stroke-width:0;"/></svg>');
   background-repeat: no-repeat;
   background-position: center right;
 }
 
-#rezform select option:first-child {
+select option:first-child {
   color: #c5c5c5;
 }
 
-#rezform select option:nth-child(2n) {
+select option:nth-child(2n) {
   background-color: #c5c5c5;
 }
 
@@ -139,7 +139,7 @@ input, select, textarea, button {
   padding-left: 1em;
 }
 
-#rezform textarea {
+textarea {
   width: 100%;
   height: 6em;
 }
@@ -152,25 +152,25 @@ input, select, textarea, button {
   text-align: right;
 }
 
-#rezform button[type='reset'] {
+button[type='reset'] {
   background-color: transparent;
   border: none;
   color: #6e6e6e;
   text-decoration: underline;
 }
 
-#rezform button[type='reset']:hover, #rezform button[type='reset']:active, #rezform button[type='reset']:focus  {
+button[type='reset']:hover, button[type='reset']:active, button[type='reset']:focus  {
   color: #000;
 }
 
-#rezform button[type='submit'] {
+button[type='submit'] {
   background-color: #e8a016;
   border: #e8a016;
   color: #f0f0f0;
   padding: 0.8em;
 }
 
-#rezform button[type='submit']:hover, #rezform button[type='submit']:active, #rezform button[type='submit']:focus {
+button[type='submit']:hover, button[type='submit']:active, button[type='submit']:focus {
   background-color: #000;
   border: #000;
 }

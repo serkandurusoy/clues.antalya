@@ -1,3 +1,36 @@
 <template name="adminLayout">
-  adminLayout Template
+{{#if connected}}
+  <div id="admin">
+    <div class="tabnav">
+      <span class="tab {{selectedTab 'one'}}" id="one">Rezervasyon</span><!--
+   --><span class="tab {{selectedTab 'two'}}" id="two">Müşteri</span><!--
+   --><span class="tab {{selectedTab 'three'}}" id="three">Takvim</span><!--
+   --><span class="tab {{selectedTab 'four'}}" id="four">Fiyat</span>
+    </div>
+    <div class="tabcontent">
+      {{#if selectedTab 'one'}}{{>one}}{{/if}}
+      {{#if selectedTab 'two'}}{{>two}}{{/if}}
+      {{#if selectedTab 'three'}}{{>three}}{{/if}}
+      {{#if selectedTab 'four'}}{{>four}}{{/if}}
+    </div>
+  </div>
+{{else}}
+  {{>connectionStatus}}
+{{/if}}
+</template>
+
+<template name="one">
+  {{>tabrezervasyon}}
+</template>
+
+<template name="two">
+  {{>tabmusteri}}
+</template>
+
+<template name="three">
+  {{>tabtakvim}}
+</template>
+
+<template name="four">
+  {{>tabtanim}}
 </template>

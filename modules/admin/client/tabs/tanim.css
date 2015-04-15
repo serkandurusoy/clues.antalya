@@ -1,0 +1,12 @@
+#fiyatTanimlari label, #fiyatTanimlari input {
+  width: 90%;
+  display: block;
+  padding: 4px;
+  margin: 4px;
+}
+
+@media screen and (max-width: 35em) {
+  #fiyatTanimlari label, #fiyatTanimlari input {
+    width: 100%;
+  }
+}

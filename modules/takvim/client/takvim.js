@@ -34,7 +34,7 @@ Template.scrollerInner.events({
 Template.takvim.helpers({
   gun: function() {
     var gun = [];
-    for (g=0; g<30; g++) {
+    for (var g=0; g<30; g++) {
       var dilimler = [
         {saat:'09:30', durum:'bos', attrs: {}},
         {saat:'11:00', durum:'bos', attrs: {}},

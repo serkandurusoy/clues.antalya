@@ -1,0 +1,63 @@
+<template name="tabtakvim">
+  <div id="tabtakvim">
+    {{>tabTakvimForm}}
+    {{>tabTakvimList}}
+  </div>
+</template>
+
+<template name="tabTakvimForm">
+  <div id="takvimForm" class="grid">
+    <form>
+      <div class="g-3-12">
+        <label for="fTarih">Tarih</label>
+        <select name="ftarih" id="ftarih" required>
+          <option>Tarih seç</option>
+          {{#each tarihler}}
+            <option value="{{value}}">{{display}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="g-3-12">
+        <label for="fsaat">Saat</label>
+        <select name="fsaat" id="fsaat" required>
+          <option value="">Saat seç</option>
+          {{#each saatler}}
+            <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="g-3-12">
+        <label for="fdurum">Tip seç</label>
+        <select name="fdurum" id="fdurum" required>
+          <option value="">Tip</option>
+          <option value="kampanyali">Kampanya</option>
+          <option value="tadilat">Tadilat</option>
+        </select>
+      </div>
+      <div class="g-3-12">
+        <label class="buttonlabel">&nbsp;</label>
+        <button type="submit">Ekle</button>
+      </div>
+      {{#if error}}
+        <div class="g-12-12 formHatali">formda hata var, seçtiğin seansı kontrol et</div>
+      {{/if}}
+    </form>
+  </div>
+</template>
+
+<template name="tabTakvimList">
+  <div id="takvimList" class="grid">
+    {{#each olaylar}}
+      {{>olay this}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="olay">
+  <div class="takvimListGun grid {{gecmis}}">
+    <div class="tlg"><span>{{display}}</span></div>
+    <div class="tlg"><span>{{saat}}</span></div>
+    <div class="tlg"><span class="{{durum}}"></span></div>
+    <div class="tlg button"><span class="sil">Sil</span></div>
+  </div>
+</template>
