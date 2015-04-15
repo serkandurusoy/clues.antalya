@@ -350,7 +350,7 @@ Meteor.methods({
 var checkTarihSaat = function(tarih,saat) {
   check(tarih, Match.Where(function(tarih) {
       check(tarih, String);
-      return moment(tarih,'YYYY-MM-DD').isValid() && moment(tarih,'YYYY-MM-DD').isAfter(moment().subtract(1,'days'), 'day');
+      return moment(tarih,'YYYY-MM-DD').isValid() && moment(tarih,'YYYY-MM-DD').isAfter(moment().subtract(2,'days'), 'day');
     })
   );
   check(saat, Match.Where(function(saat) {

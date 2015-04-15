@@ -1,5 +1,59 @@
 <template name="tabrezervasyon">
   <div id="tabrezervasyon">
-    Rezervasyonlar tab
+    {{#if showform}}
+      {{>tabRezForm rezervasyon}}
+    {{else}}
+      {{>tabRezList}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="tabRezForm">
+  <div id="tabRezForm" class="grid">
+    <form>
+      <div class="g-12-12 vazgecwrap">
+        <span class="vazgec">vazgeç</span>
+      </div>
+      <div class="g-12-12">
+        <input name="isim" value="{{bilgiler.isim}}" id="isim" type="text" placeholder="Ad ve soyad" min="5" maxlength="250" required>
+      </div>
+      <div class="g-12-12">
+        <div><span class="prefix">+ 90</span><input name="telefon" value="{{barePhone bilgiler.telefon}}" id="telefon" type="tel" placeholder="Cep telefonu" min="10" maxlength="10" required></div>
+      </div>
+      <div class="g-12-12">
+        <input name="eposta" value="{{bilgiler.eposta}}" id="eposta" type="email" placeholder="E-posta adresi" maxlength="250" required>
+      </div>
+      <div class="g-12-12">
+        <textarea name="not" maxlength="1000" placeholder="Varsa müşteriyle ilgili özel notlar">{{bilgiler.not}}</textarea>
+      </div>
+      <div class="g-12-12">
+        <button type="submit">Kaydet</button>
+      </div>
+      {{#if error}}
+        <div class="g-12-12 formHatali">formda hatalar var</div>
+      {{/if}}
+    </form>
+  </div>
+</template>
+
+<template name="tabRezList">
+  <div class="g-12-12 butonlar"><span class="button rezekle">Rezervasyon Ekle</span></div>
+  <div id="tabRezList" class="grid">
+    {{#each rezervasyonlar}}
+      {{>rezervasyonDetay this}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="rezervasyonDetay">
+  <div class="rezervasyonDetay grid {{gecmis}}" title="{{bilgiler.isim}}">
+    <div class="g-6-12 selectable">{{formatTarih tarih}} {{saat}}<br><span class="notlar">{{bilgiler.isim}} - {{bilgiler.sayi}} kişi | {{fiyat}}TL | {{kanal}} | {{tip}}</span></div>
+    <div class="g-6-12 selectable"><a class="noprop" target="_blank" href="mailto:{{bilgiler.eposta}}">{{bilgiler.eposta}}</a><br><a class="noprop" target="_blank" href="tel:{{bilgiler.telefon}}">{{formatTel bilgiler.telefon}}</a></div>
+    {{#if showDetail}}
+      <div class="g-12-12 detay butonlar"><span class="guncelle button noprop">Güncelle</span><span class="reziptal button noprop">İptal</span></div>
+      {{#if not}}<div class="g-12-12 detay notlar">Rezervasyon notları: {{bilgiler.not}}</div>{{/if}}
+      {{#if musterisi.not}}<div class="g-12-12 detay notlar">Müşteri notları: {{musterisi.not}}</div>{{/if}}
+      <div class="g-12-12 detay">{{musterisi.rez}} kere {{musterisi.kisi}} rezervasyon yaptılar ve {{musterisi.ciro}}TL cirosu var.</div>
+    {{/if}}
   </div>
 </template>
