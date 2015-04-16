@@ -11,10 +11,12 @@
 </template>
 
 <template name="menu">
-  <ul class="{{menuType}} {{menuStatus}}">
-    <li data-target="#nedir">Nedir?</li>
-    <li data-target="#kurallar">Kurallar</li>
-    <li data-target="#rezervasyon">Rezervasyon</li>
-    <li data-target="#iletisim">İletişim</li>
-  </ul>
+  {{#if menuSetUp}}
+    <ul class="{{menuType}} {{menuStatus}}">
+      <li data-target="#nedir">Nedir?</li>
+      <li data-target="#kurallar">Kurallar</li>
+      <li data-target="#rezervasyon">Rezervasyon</li>
+      <li data-target="#iletisim">İletişim</li>
+    </ul>
+  {{/if}}
 </template>

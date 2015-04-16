@@ -1,7 +1,6 @@
 Template.navbar.events({
   'click [data-target]': function (e, t) {
-    var id = e.target.getAttribute('data-target');
-    var $target = $(id);
+    var $target = $(e.target.getAttribute('data-target'));
     var pos = parseInt($target.offset().top) - parseInt($('.navbar').height()) - 16;
     if ($(t.$('ul').hasClass('overlay'))) {
       Session.set('menuStatus', 'menuClosed');
@@ -9,30 +8,7 @@ Template.navbar.events({
     $('html,body').animate({
       scrollTop: pos
     }, 1000);
-    ga('send', 'event', id.substr(1), 'click');
   }
-});
-
-Template.navbar.onRendered(function () {
-  var setupWaypoints = function () {
-    $('section').each(function () {
-      var waypoints = [];
-      var id = this.id;
-      waypoints[id] = new Waypoint({
-        element: document.getElementById(id),
-        handler: function (direction) {
-          ga('send', 'event', id, 'scroll');
-        },
-        offset: 'bottom-in-view'
-      });
-    });
-  };
-
-  $(window).resize(function () {
-    setupWaypoints();
-  });
-
-  Meteor.setTimeout(setupWaypoints, 0);
 });
 
 Template.menu.onRendered(function () {
@@ -48,6 +24,7 @@ Template.menu.onRendered(function () {
     setUpMenu();
   });
   Meteor.setTimeout(setUpMenu, 0);
+  Session.set('menuSetUp',true);
 });
 
 Template.menu.helpers({
@@ -56,6 +33,9 @@ Template.menu.helpers({
   },
   menuStatus: function () {
     return Session.get('menuStatus');
+  },
+  menuSetUp: function () {
+    return Session.get('menuSetUp');
   }
 });
 
