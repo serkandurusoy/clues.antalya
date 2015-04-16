@@ -13,9 +13,14 @@ accounts-google
 dburles:collection-helpers
 matb33:collection-hooks
 todda00:collection-revisions
+netanelgilad:excel
+netanelgilad:node-uuid
+netanelgilad:mkdirp
+vsivsi:file-collection
 dburles:google-maps
 momentjs:moment
 rzymek:moment-locale-tr
+risul:moment-timezone
 mizzao:timesync
 percolate:synced-cron
 meteorhacks:unblock

@@ -4,13 +4,15 @@
       <span class="tab {{selectedTab 'one'}}" id="one">Rezervasyon</span><!--
    --><span class="tab {{selectedTab 'two'}}" id="two">Müşteri</span><!--
    --><span class="tab {{selectedTab 'three'}}" id="three">Takvim</span><!--
-   --><span class="tab {{selectedTab 'four'}}" id="four">Fiyat</span>
+   --><span class="tab {{selectedTab 'four'}}" id="four">Fiyat</span><!--
+   --><span class="tab {{selectedTab 'five'}}" id="five">Rapor</span>
     </div>
     <div class="tabcontent">
       {{#if selectedTab 'one'}}{{>one}}{{/if}}
       {{#if selectedTab 'two'}}{{>two}}{{/if}}
       {{#if selectedTab 'three'}}{{>three}}{{/if}}
       {{#if selectedTab 'four'}}{{>four}}{{/if}}
+      {{#if selectedTab 'five'}}{{>five}}{{/if}}
     </div>
   </div>
 </template>
@@ -29,4 +31,8 @@
 
 <template name="four">
   {{>tabtanim}}
+</template>
+
+<template name="five">
+  {{>tabrapor}}
 </template>

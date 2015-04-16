@@ -54,6 +54,9 @@ Musteriler.attachCollectionRevisions();
 Musteriler.helpers({
   rezervasyonlari: function() {
     return Rezervasyon.find({'bilgiler.eposta': this.eposta});
+  },
+  sonRezervasyonu: function() {
+    return Rezervasyon.findOne({'bilgiler.eposta': this.eposta}, {sort: {tarih: -1, saat: -1}});
   }
 });
 

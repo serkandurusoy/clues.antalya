@@ -55,9 +55,12 @@ minifiers@1.1.5
 minimongo@1.0.8
 mizzao:timesync@0.3.1
 mobile-status-bar@1.0.3
-momentjs:moment@2.10.2
+momentjs:moment@2.10.3
 mongo@1.1.0
 mongo-livedata@1.0.8
+netanelgilad:excel@0.1.1
+netanelgilad:mkdirp@0.0.1
+netanelgilad:node-uuid@1.0.2
 oauth@1.1.4
 oauth2@1.1.3
 observe-sequence@1.0.6
@@ -70,6 +73,7 @@ reactive-var@1.0.5
 reload@1.1.3
 retry@1.0.3
 reywood:iron-router-ga@0.6.0
+risul:moment-timezone@0.3.0_1
 routepolicy@1.0.5
 rzymek:moment-locale-tr@2.9.0
 service-configuration@1.0.4
@@ -85,5 +89,6 @@ ui@1.0.6
 underscore@1.0.3
 underscorestring:underscore.string@3.0.3
 url@1.0.4
+vsivsi:file-collection@1.0.5
 webapp@1.2.0
 webapp-hashing@1.0.3
