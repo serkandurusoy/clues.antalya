@@ -44,7 +44,7 @@ Template.tabRezForm.helpers({
   tarihler: function() {
     var tarihler = [];
     for (var g=0; g<90; g++) {
-      var tarih = moment(new Date(TimeSync.serverTime(null,10*1000))).subtract(1,'days').add(g,'days');
+      var tarih = moment(new Date(TimeSync.serverTime(null,60*1000))).subtract(1,'days').add(g,'days');
       tarihler.push({
         value: tarih.format('YYYY-MM-DD'),
         display: tarih.format('DD MMM ddd')
@@ -278,7 +278,7 @@ Template.tabRezForm.events({
 
 Template.tabRezList.helpers({
   rezervasyonlar: function() {
-    var tarih = moment(new Date(TimeSync.serverTime(null,10*1000))).subtract(1,'days').format('YYYY-MM-DD');
+    var tarih = moment(new Date(TimeSync.serverTime(null,60*1000))).subtract(1,'days').format('YYYY-MM-DD');
     return Rezervasyon.find({tarih: {$gte: tarih}, durum: 'dolu'},{sort: {tarih: 1, saat: 1}});
   }
 });
@@ -304,7 +304,7 @@ Template.rezervasyonDetay.helpers({
     return moment(tarih,'YYYY-MM-DD').format('DD MMM ddd');
   },
   gecmis: function() {
-    return Template.currentData().tarih < moment(new Date(TimeSync.serverTime(null,10*1000))).format('YYYY-MM-DD') ? 'gecmis' : false;
+    return Template.currentData().tarih < moment(new Date(TimeSync.serverTime(null,60*1000))).format('YYYY-MM-DD') ? 'gecmis' : false;
   }
 });
 

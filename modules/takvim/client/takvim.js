@@ -49,7 +49,7 @@ Template.takvim.helpers({
         {saat:'00:30', durum:'gece', attrs: {}}
       ];
 
-      var today = moment(new Date(TimeSync.serverTime(null,10*1000)));
+      var today = moment(new Date(TimeSync.serverTime(null,60*1000)));
 
       var simdi = today.format('HH:mm');
 
@@ -140,8 +140,8 @@ Template.takvim.helpers({
   }
 });
 
-Template.takvim.events({
-  'click .dilim.bos, click .dilim.kampanyali': function(e,t) {
+Template.takvimDilim.events({
+  'click .bos, click .kampanyali': function(e,t) {
     e.stopPropagation();
     Session.set('seciliDilim', {
       tarih: t.$(e.target).parent().attr('data-tarih'),

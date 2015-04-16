@@ -3,20 +3,29 @@
     <div class="takvimwrapper scrollable">
       <div id="takvim">
         {{#each gun}}
-          <div class="gun {{guntipi}}" data-tarih="{{tarih}}">
-            <div class="display htop">{{{display}}}</div>
-            {{#each dilim}}
-              <div {{attrs}} class="dilim thin {{durum}}" data-saat="{{saat}}" data-kendiRez="{{kendiRez}}">
-                {{saat}}
-              </div>
-            {{/each}}
-            <div class="display hbottom">{{{display}}}</div>
-          </div>
+          {{>takvimGun}}
         {{/each}}
       </div>
     </div>
   </div>
 </template>
+
+<template name="takvimGun">
+  <div class="gun {{guntipi}}" data-tarih="{{tarih}}">
+    <div class="display htop">{{{display}}}</div>
+    {{#each dilim}}
+      {{>takvimDilim}}
+    {{/each}}
+    <div class="display hbottom">{{{display}}}</div>
+  </div>
+</template>
+
+<template name="takvimDilim">
+  <div {{attrs}} class="dilim thin {{durum}}" data-saat="{{saat}}" data-kendiRez="{{kendiRez}}">
+    {{saat}}
+  </div>
+</template>
+
 
 <template name="scrollerTop">
   <span class="scroller">

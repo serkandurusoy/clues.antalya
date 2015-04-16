@@ -42,7 +42,7 @@ Template.tabrapor.helpers({
     });
   },
   future: function() {
-    var bugun = moment(new Date(TimeSync.serverTime(null,10*1000))).format('YYYY-MM-DD');
+    var bugun = moment(new Date(TimeSync.serverTime(null,60*1000))).format('YYYY-MM-DD');
     return _.reduce(Rezervasyon.find({durum:'dolu',tarih:{$gte: bugun}}).fetch(), function(stats, rezervasyon){
       return {
         rez: stats.rez + 1,
