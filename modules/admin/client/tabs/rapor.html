@@ -1,15 +1,41 @@
 <template name="tabrapor">
   <div id="tabrapor">
     <div class="grid">
-      <div class="g-12-12">
-        RAPORLAR
+      <div class="g-12-12 stats grid">
+        <div>{{stats.rez}}<br>Rezervasyon</div>
+        <div>{{stats.kisi}}<br>Kişi</div>
+        <div>{{stats.ciro}}<br>TL Ciro</div>
       </div>
-      <div class="g-12-12">
-        <button class="downRez download">rezervasyonlar</button>
+      <div class="g-6-12 chart">
+        <div>Tipine Göre Rezervasyon Adedi</div>
+        <div>{{>tipKirilimiAdet}}</div>
       </div>
-      <div class="g-12-12">
-        <button class="downMus download">musteriler</button>
+      <div class="g-6-12 chart">
+        <div>Tipine Göre Rezervasyon Cirosu</div>
+        <div>{{>tipKirilimiCiro}}</div>
+      </div>
+      <div class="g-12-12 chart">
+        <div>Aylara Göre Rezervasyon Adetleri</div>
+        <div>{{>aylikRezervasyonGelisimi}}</div>
+      </div>
+      <div class="g-6-12">
+        <button class="downRez download">Rezervasyonlar XLS</button>
+      </div>
+      <div class="g-6-12">
+        <button class="downMus download">Müşteriler XLS</button>
       </div>
     </div>
   </div>
+</template>
+
+<template name="tipKirilimiAdet">
+  <canvas id="tipKirilimiAdet" height="200" width="400"></canvas>
+</template>
+
+<template name="tipKirilimiCiro">
+  <canvas id="tipKirilimiCiro" height="200" width="400"></canvas>
+</template>
+
+<template name="aylikRezervasyonGelisimi">
+  <canvas id="aylikRezervasyonGelisimi" height="200" width="400"></canvas>
 </template>
