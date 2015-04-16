@@ -29,11 +29,25 @@ Template.tabrapor.events({
 
 Template.tabrapor.helpers({
   stats: function() {
-    return _.reduce(Musteriler.find().fetch(), function(stats, musteri){
+    return _.reduce(Rezervasyon.find({durum:'dolu'}).fetch(), function(stats, rezervasyon){
       return {
-        rez: stats.rez+musteri.rez,
-        kisi: stats.kisi+musteri.kisi,
-        ciro: stats.ciro+musteri.ciro
+        rez: stats.rez + 1,
+        kisi: stats.kisi + rezervasyon.bilgiler.sayi,
+        ciro: stats.ciro + rezervasyon.fiyat
+      };
+    }, {
+      rez: 0,
+      kisi: 0,
+      ciro: 0
+    });
+  },
+  future: function() {
+    var bugun = moment(new Date(TimeSync.serverTime(null,10*1000))).format('YYYY-MM-DD');
+    return _.reduce(Rezervasyon.find({durum:'dolu',tarih:{$gte: bugun}}).fetch(), function(stats, rezervasyon){
+      return {
+        rez: stats.rez + 1,
+        kisi: stats.kisi + rezervasyon.bilgiler.sayi,
+        ciro: stats.ciro + rezervasyon.fiyat
       };
     }, {
       rez: 0,
@@ -109,8 +123,27 @@ Template.tipKirilimiCiro.onRendered(function(){
 
 Template.aylikRezervasyonGelisimi.onRendered(function(){
   this.autorun(function() {
+    var gun = moment(Rezervasyon.find({durum:'dolu'},{sort: {tarih: 1}, limit: 1}).fetch()[0].tarih,'YYYY-MM-DD').subtract(1,'months');
+    var end = moment(Rezervasyon.find({durum:'dolu'},{sort: {tarih: -1}, limit: 1}).fetch()[0].tarih,'YYYY-MM-DD').add(2,'months');
+    var aylar = [];
+
+    while(gun.isBefore(end)) {
+      aylar.push({ay: gun.format('MMM YYYY'), toplam: 0});
+      gun.add(1,'months');
+    }
+
+    Rezervasyon.find({durum:'dolu'},{sort: {tarih: 1}}).forEach(function(rez){
+      var ayRez = moment(rez.tarih,'YYYY-MM-DD').format('MMM YYYY');
+      _.map(aylar,function(ay) {
+        if (ay.ay === ayRez) {
+          ay.toplam = ay.toplam + 1;
+        }
+        return ay;
+      });
+    });
+
     var data = {
-      labels : ["Ocak","Şubat","Mart","Nisan"],
+      labels : _.pluck(aylar,'ay'),
       datasets : [
         {
           fillColor : "rgba(49,134,193, 0.7)",
@@ -119,12 +152,7 @@ Template.aylikRezervasyonGelisimi.onRendered(function(){
           pointStrokeColor: "#2A699E",
           pointHighlightFill: "#2A699E",
           pointHighlightStroke: "#2A699E",
-          data : [
-            13,
-            18,
-            21,
-            16
-          ]
+          data : _.pluck(aylar,'toplam')
         }
       ]
     };

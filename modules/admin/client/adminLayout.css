@@ -69,7 +69,7 @@
   max-width: 48em;
 }
 
-@media screen and (max-width: 20em) {
+@media screen and (max-width: 25em) {
   .tabcontent {
     padding: 38px 6px 6px 6px;
   }
