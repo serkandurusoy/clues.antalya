@@ -148,6 +148,17 @@ Template.musteri.events({
       Blaze.getView(document.getElementById("tabmusteri")).templateInstance().showform.set(true);
     }
   },
+  'click .rezyap': function(e,t) {
+    e.stopImmediatePropagation();
+    var musteri = Musteriler.findOne({_id: t.data._id});
+    if (musteri) {
+      Blaze.getView(document.getElementById("admin")).templateInstance().tabState.set('one');
+      Meteor.defer(function() {
+        Blaze.getView(document.getElementById("tabrezervasyon")).templateInstance().showform.set(true);
+        Blaze.getView(document.getElementById("tabrezervasyon")).templateInstance().showFromMusteri.set({isim: musteri.isim, eposta: musteri.eposta, telefon: musteri.telefon});
+      });
+    }
+  },
   'click .noprop': function(e,t) {
     e.stopImmediatePropagation();
   },

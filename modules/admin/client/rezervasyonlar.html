@@ -2,7 +2,15 @@
 
   {{#if currentUser}}
 
-    {{> adminLayout}}
+    {{#if connected}}
+
+      {{> adminLayout}}
+
+    {{else}}
+
+      {{>connectionStatus}}
+
+    {{/if}}
 
   {{else}}
 

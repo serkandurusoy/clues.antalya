@@ -16,11 +16,19 @@ Meteor.methods({
         return true;
       } else {
         check(ozelfiyat, Match.Integer);
-        return !!Meteor.userId() && parseInt(ozelfiyat) >= parseInt(0) && parseInt(ozelfiyat) <= parseInt(Fiyatlar.findOne({},{sort: {fiyat: -1}}).fiyat);
+        return !!Meteor.userId() && parseInt(ozelfiyat) >= parseInt(0) && parseInt(ozelfiyat) <= parseInt(500);
       }
     }));
 
     bilgiDuzenle(bilgiler);
+
+    var mt = Musteriler.findOne({telefon: bilgiler.telefon});
+    var me = Musteriler.findOne({eposta: bilgiler.eposta});
+
+    if (mt && me && mt._id !== me._id) {
+      throw new Meteor.Error('two-people-constraint',
+        'Farklı kişilere ait cep telefonu ve eposta adresi verilemez.');
+    }
 
     var conn = this.connection && this.connection.id ? this.connection.id : 'Bilinmiyor';
     var ip = this.connection && this.connection.clientAddress ? this.connection.clientAddress : 'Bilinmiyor';
@@ -145,11 +153,11 @@ Meteor.methods({
         return true;
       } else {
         check(yeniozelfiyat, Match.Integer);
-        return !!Meteor.userId() && parseInt(yeniozelfiyat) >= parseInt(0) && parseInt(yeniozelfiyat) <= parseInt(Fiyatlar.findOne({},{sort: {fiyat: -1}}).fiyat);
+        return !!Meteor.userId() && parseInt(yeniozelfiyat) >= parseInt(0) && parseInt(yeniozelfiyat) <= parseInt(500);
       }
     }));
 
-    checkUnique(yenitarih, yenisaat, 'dolu');
+    checkUniqueExceptThis(tarih, saat, yenitarih, yenisaat);
     checkUnique(yenitarih, yenisaat, 'tadilat');
 
     if (Meteor.userId()) {
@@ -160,6 +168,14 @@ Meteor.methods({
       var fiyat = yeniozelfiyat !== 'yok' ? parseInt(yeniozelfiyat) : parseInt( tip === 'Kampanyalı' ? Fiyatlar.findOne({tip: 'kampanya'}).fiyat : yenisaat === '00:30' ? Fiyatlar.findOne({tip: 'gece'}).fiyat : Fiyatlar.findOne({tip: 'gun' + yenibilgiler.sayi}).fiyat );
 
       bilgiDuzenle(yenibilgiler);
+
+      var mt = Musteriler.findOne({telefon: yenibilgiler.telefon});
+      var me = Musteriler.findOne({eposta: yenibilgiler.eposta});
+
+      if (mt && me && mt._id !== me._id) {
+        throw new Meteor.Error('two-people-constraint',
+          'Farklı kişilere ait cep telefonu ve eposta adresi verilemez.');
+      }
 
       if ( yenitarih === rez.tarih &&
            yenisaat === rez.saat &&
@@ -390,4 +406,19 @@ var checkUnique = function(tarih,saat,durum) {
     throw new Meteor.Error('unique-constraint',
       'Belirtilen saatte zaten bir kayıt var.');
   }
+};
+
+var checkUniqueExceptThis = function(tarih,saat,yenitarih,yenisaat) {
+  var rez = Rezervasyon.findOne({
+    _id: {$ne: Rezervasyon.findOne({tarih: tarih, saat: saat, durum: 'dolu'})._id},
+    tarih: yenitarih,
+    saat: yenisaat,
+    durum: 'dolu'
+  });
+
+  if (rez) {
+    throw new Meteor.Error('unique-constraint',
+      'Belirtilen saatte zaten bir kayıt var.');
+  }
+
 };

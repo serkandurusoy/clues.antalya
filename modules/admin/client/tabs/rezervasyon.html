@@ -15,6 +15,22 @@
         <span class="vazgec">vazgeç</span>
       </div>
       <div class="g-12-12">
+        <select name="tarih" id="tarih" required>
+          <option value="">Tarih</option>
+          {{#each tarihler}}
+            <option value="{{value}}" selected="{{selected ../tarih value}}">{{formatTarih value}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="g-12-12">
+        <select name="saat" id="saat" required>
+          <option value="">Saat</option>
+          {{#each saatler}}
+            <option value="{{this}}" selected="{{selected ../saat this}}">{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="g-12-12">
         <input name="isim" value="{{bilgiler.isim}}" id="isim" type="text" placeholder="Ad ve soyad" min="5" maxlength="250" required>
       </div>
       <div class="g-12-12">
@@ -24,7 +40,22 @@
         <input name="eposta" value="{{bilgiler.eposta}}" id="eposta" type="email" placeholder="E-posta adresi" maxlength="250" required>
       </div>
       <div class="g-12-12">
-        <textarea name="not" maxlength="1000" placeholder="Varsa müşteriyle ilgili özel notlar">{{bilgiler.not}}</textarea>
+        <select name="sayi" required placeholder="Kişi sayısı">
+          <option value="">Kişi sayısı</option>
+          <option selected="{{selected bilgiler.sayi 2}}" value="2">2</option>
+          <option selected="{{selected bilgiler.sayi 3}}" value="3">3</option>
+          <option selected="{{selected bilgiler.sayi 4}}" value="4">4</option>
+          <option selected="{{selected bilgiler.sayi 5}}" value="5">5</option>
+        </select>
+      </div>
+      <div class="g-12-12">
+        <input name="tip" value="{{tip}}" id="tip" type="text" readonly placeholder="Normal / kampanya durumu">
+      </div>
+      <div class="g-12-12">
+        <input name="ozelFiyat" value="{{ozelFiyat}}" id="ozelFiyat" type="number" placeholder="Fiyat" min="0" max="500" step="5" maxlength="3" required>
+      </div>
+      <div class="g-12-12">
+        <textarea name="not" maxlength="1000" placeholder="Varsa rezervasyonla ilgili notlar">{{bilgiler.not}}</textarea>
       </div>
       <div class="g-12-12">
         <button type="submit">Kaydet</button>
@@ -46,14 +77,14 @@
 </template>
 
 <template name="rezervasyonDetay">
-  <div class="rezervasyonDetay grid {{gecmis}}" title="{{bilgiler.isim}}">
-    <div class="g-6-12 selectable">{{formatTarih tarih}} {{saat}}<br><span class="notlar">{{bilgiler.isim}} - {{bilgiler.sayi}} kişi | {{fiyat}}TL | {{kanal}} | {{tip}}</span></div>
+  <div class="rezervasyonDetay grid {{gecmis}}" title="{{formatTarih tarih}} {{saat}} {{bilgiler.isim}}">
+    <div class="g-6-12 selectable">{{formatTarih tarih}} {{saat}} <span class="notlar notitalic">{{bilgiler.isim}}</span><br><span class="notlar">{{tip}} {{bilgiler.sayi}} kişi {{fiyat}}TL - {{kanal}}</span></div>
     <div class="g-6-12 selectable"><a class="noprop" target="_blank" href="mailto:{{bilgiler.eposta}}">{{bilgiler.eposta}}</a><br><a class="noprop" target="_blank" href="tel:{{bilgiler.telefon}}">{{formatTel bilgiler.telefon}}</a></div>
     {{#if showDetail}}
       <div class="g-12-12 detay butonlar"><span class="guncelle button noprop">Güncelle</span><span class="reziptal button noprop">İptal</span></div>
-      {{#if not}}<div class="g-12-12 detay notlar">Rezervasyon notları: {{bilgiler.not}}</div>{{/if}}
+      {{#if bilgiler.not}}<div class="g-12-12 detay notlar">Rezervasyon notları: {{bilgiler.not}}</div>{{/if}}
       {{#if musterisi.not}}<div class="g-12-12 detay notlar">Müşteri notları: {{musterisi.not}}</div>{{/if}}
-      <div class="g-12-12 detay">{{musterisi.rez}} kere {{musterisi.kisi}} rezervasyon yaptılar ve {{musterisi.ciro}}TL cirosu var.</div>
+      <div class="g-12-12 detay notlar">Toplam {{musterisi.rez}} kere {{musterisi.kisi}} kişilik rezervasyon yaptılar ve {{musterisi.ciro}}TL ciroları var.</div>
     {{/if}}
   </div>
 </template>

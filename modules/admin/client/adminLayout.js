@@ -5,9 +5,6 @@ Template.adminLayout.onCreated(function(){
 Template.adminLayout.helpers({
   selectedTab: function(tab) {
     return Template.instance().tabState.get() === tab ? 'selectedTab' : null;
-  },
-  connected: function(){
-    return Session.equals('status','connected');
   }
 });
 
@@ -16,5 +13,11 @@ Template.adminLayout.events({
     if (!_.contains(e.target.classList, 'selectedTab')) {
       t.tabState.set(e.target.id);
     }
+  }
+});
+
+Template.rezervasyonlar.helpers({
+  connected: function(){
+    return Session.equals('status','connected');
   }
 });

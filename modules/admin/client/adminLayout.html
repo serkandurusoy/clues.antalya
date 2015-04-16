@@ -1,5 +1,4 @@
 <template name="adminLayout">
-{{#if connected}}
   <div id="admin">
     <div class="tabnav">
       <span class="tab {{selectedTab 'one'}}" id="one">Rezervasyon</span><!--
@@ -14,9 +13,6 @@
       {{#if selectedTab 'four'}}{{>four}}{{/if}}
     </div>
   </div>
-{{else}}
-  {{>connectionStatus}}
-{{/if}}
 </template>
 
 <template name="one">

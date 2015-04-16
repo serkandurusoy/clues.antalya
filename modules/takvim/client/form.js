@@ -103,7 +103,7 @@ Template.rezform.events({
     Session.set('inProgress', null);
   },
   'blur select[name="sayi"], change select[name="sayi"]': function(e,t) {
-    var val = e.target.value;
+    var val = parseInt(e.target.value);
     var test = val;
     var $el = t.$('select[name="sayi"]');
     Session.set('kisiSayisi', val);

@@ -1,0 +1,80 @@
+#tabRezForm input, #tabRezForm textarea, #tabRezForm select, #tabRezForm button, #tabRezForm .prefix {
+  width: 100%;
+  display: block;
+  padding: 4px;
+  margin: 4px;
+}
+
+#tabRezForm .prefix {
+  width: 12%;
+  text-align: center;
+  float: left;
+  margin: 4px 0;
+}
+
+#tabRezForm input#telefon {
+  width: 88%;
+  float: right;
+  margin: 4px -4px 4px 0;
+}
+
+#tabRezForm button {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+#tabRezForm .formHatali {
+  font-size: 100%;
+  text-align:center;
+  padding: 16px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#tabRezList .gecmis {
+  color: #c5c5c5;
+}
+
+#tabRezList .rezervasyonDetay:nth-child(2n) {
+  background-color: #f0f0f0;
+}
+
+#tabRezList .rezervasyonDetay {
+  padding: 12px;
+}
+
+.rezervasyonDetay {
+  cursor: pointer;
+}
+
+.rezervasyonDetay .detay {
+  padding: 8px;
+}
+
+.detay {
+  margin-top: 16px;
+}
+
+.detay ~ .detay {
+  margin-top: 0;
+}
+
+.reziptalemin.button,.reziptal.button {
+  margin-left: 12px;
+}
+
+.rezekle {
+  margin: 16px 0 24px 0;
+}
+
+.notitalic {
+  font-style: normal;
+}
+
+.reziptalemin {
+  background-color: #ff4500!important;
+}
+
+.reziptalemin:hover {
+  background-color: #882200!important;
+}
