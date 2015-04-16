@@ -143,3 +143,4 @@ Template.aylikRezervasyonGelisimi.onRendered(function(){
     });
   });
 });
+
