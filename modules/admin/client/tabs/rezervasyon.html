@@ -15,7 +15,7 @@
         <span class="vazgec">vazgeç</span>
       </div>
       <div class="g-12-12">
-        <select name="tarih" id="tarih" required>
+        <select name="tarih" id="tarih" class="{{dolu}}" required>
           <option value="">Tarih</option>
           {{#each tarihler}}
             <option value="{{value}}" selected="{{selected ../tarih value}}">{{formatTarih value}}</option>
@@ -23,7 +23,7 @@
         </select>
       </div>
       <div class="g-12-12">
-        <select name="saat" id="saat" required>
+        <select name="saat" id="saat" class="{{dolu}}" required>
           <option value="">Saat</option>
           {{#each saatler}}
             <option value="{{this}}" selected="{{selected ../saat this}}">{{this}}</option>

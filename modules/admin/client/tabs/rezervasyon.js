@@ -67,6 +67,17 @@ Template.tabRezForm.helpers({
     }
     return tip;
   },
+  dolu: function() {
+    var tarih = Template.instance().tarih.get();
+    var saat = Template.instance().saat.get();
+    var showRez = Rezervasyon.findOne({_id: Blaze.getView(document.getElementById("tabrezervasyon")).templateInstance().showRezervasyon.get()});
+    var showRezId = showRez && showRez._id;
+    var dolu = null;
+    if (tarih && saat ) {
+      return Rezervasyon.findOne({$and:[{tarih: tarih},{saat: saat},{$or:[{durum:'dolu'},{durum:'tadilat'}]},{_id:{$ne: showRezId}}]}) ? 'dolu' : null;
+    }
+    return dolu;
+  },
   ozelFiyat: function() {
     var tarih = Template.instance().tarih.get();
     var saat = Template.instance().saat.get();

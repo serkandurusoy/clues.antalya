@@ -23,6 +23,10 @@
   margin-bottom: 24px;
 }
 
+#tabRezForm select.dolu {
+  border: thin solid #ff4500;
+}
+
 #tabRezForm .formHatali {
   font-size: 100%;
   text-align:center;
