@@ -6,7 +6,7 @@ Template.tabTakvimForm.helpers({
   tarihler: function() {
     var tarihler = [];
     for (var g=0; g<90; g++) {
-      var tarih = moment(new Date(TimeSync.serverTime(null,60*1000))).subtract(1,'days').add(g,'days');
+      var tarih = moment(new Date(TimeSync.serverTime(null,5*60*1000))).subtract(1,'days').add(g,'days');
       tarihler.push({
         value: tarih.format('YYYY-MM-DD'),
         display: tarih.format('DD MMM ddd')
@@ -47,7 +47,7 @@ Template.tabTakvimForm.events({
 
 Template.tabTakvimList.helpers({
   olaylar: function() {
-    var tarih = moment(new Date(TimeSync.serverTime(null,60*1000))).subtract(1,'days').format('YYYY-MM-DD');
+    var tarih = moment(new Date(TimeSync.serverTime(null,5*60*1000))).subtract(1,'days').format('YYYY-MM-DD');
     return Rezervasyon.find({
         $and: [
           {
@@ -66,7 +66,7 @@ Template.tabTakvimList.helpers({
         fields: {tarih:1, saat: 1, durum: 1}
       }
     ).map(function(rez){
-        rez.tarih < moment(new Date(TimeSync.serverTime(null,60*1000))).format('YYYY-MM-DD') || rez.durum === 'tadilat' ? rez.gecmis = 'gecmis' : rez.gecmis = false;
+        rez.tarih < moment(new Date(TimeSync.serverTime(null,5*60*1000))).format('YYYY-MM-DD') || rez.durum === 'tadilat' ? rez.gecmis = 'gecmis' : rez.gecmis = false;
         rez.display = moment(rez.tarih,'YYYY-MM-DD').format('DD MMM ddd');
         return rez;
       })

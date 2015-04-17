@@ -1,19 +1,21 @@
 <template name="takvim">
-  <div class="scrollwrapper">
-    <div class="takvimwrapper scrollable">
-      <div id="takvim">
-        {{#each gun}}
-          {{>takvimGun}}
-        {{/each}}
+  {{#unless waitingForServerTime}}
+    <div class="scrollwrapper">
+      <div class="takvimwrapper scrollable">
+        <div id="takvim">
+          {{#each gunler}}
+            {{>takvimGun}}
+          {{/each}}
+        </div>
       </div>
     </div>
-  </div>
+  {{/unless}}
 </template>
 
 <template name="takvimGun">
   <div class="gun {{guntipi}}" data-tarih="{{tarih}}">
     <div class="display htop">{{{display}}}</div>
-    {{#each dilim}}
+    {{#each dilimler}}
       {{>takvimDilim}}
     {{/each}}
     <div class="display hbottom">{{{display}}}</div>
@@ -21,8 +23,8 @@
 </template>
 
 <template name="takvimDilim">
-  <div {{attrs}} class="dilim thin {{durum}}" data-saat="{{saat}}" data-kendiRez="{{kendiRez}}">
-    {{saat}}
+  <div {{attrs durum kendiRez}} class="dilim thin {{durum}}" data-saat="{{saat}}" data-kendiRez="{{kendiRez}}">
+    {{content}}
   </div>
 </template>
 

@@ -42,7 +42,7 @@ Template.tabrapor.helpers({
     });
   },
   future: function() {
-    var bugun = moment(new Date(TimeSync.serverTime(null,60*1000))).format('YYYY-MM-DD');
+    var bugun = moment(new Date(TimeSync.serverTime(null,5*60*1000))).format('YYYY-MM-DD');
     return _.reduce(Rezervasyon.find({durum:'dolu',tarih:{$gte: bugun}}).fetch(), function(stats, rezervasyon){
       return {
         rez: stats.rez + 1,
@@ -123,8 +123,8 @@ Template.tipKirilimiCiro.onRendered(function(){
 
 Template.aylikRezervasyonGelisimi.onRendered(function(){
   this.autorun(function() {
-    var gun = moment(Rezervasyon.find({durum:'dolu'},{sort: {tarih: 1}, limit: 1}).fetch()[0].tarih,'YYYY-MM-DD').subtract(1,'months');
-    var end = moment(Rezervasyon.find({durum:'dolu'},{sort: {tarih: -1}, limit: 1}).fetch()[0].tarih,'YYYY-MM-DD').add(2,'months');
+    var gun = moment(Rezervasyon.findOne({durum:'dolu'}) ? Rezervasyon.find({durum:'dolu'},{sort: {tarih: 1}, limit: 1}).fetch()[0].tarih : moment(new Date(TimeSync.serverTime(null,5*60*1000))).format('YYYY-MM-DD') ,'YYYY-MM-DD').subtract(1,'months');
+    var end = moment(Rezervasyon.findOne({durum:'dolu'}) ? Rezervasyon.find({durum:'dolu'},{sort: {tarih: -1}, limit: 1}).fetch()[0].tarih: moment(new Date(TimeSync.serverTime(null,5*60*1000))).format('YYYY-MM-DD') ,'YYYY-MM-DD').add(2,'months');
     var aylar = [];
 
     while(gun.isBefore(end)) {

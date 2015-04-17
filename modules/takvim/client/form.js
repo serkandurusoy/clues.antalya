@@ -122,6 +122,9 @@ Template.rezform.events({
       $el.removeClass('error');
     }
   },
+  'keypress input[name="eposta"]': function(e,t){
+    return /^[a-z0-9@\.\-_\+]+$/i.test(String.fromCharCode(e.which));
+  },
   'blur input[name="eposta"], keyup input[name="eposta"]': function(e,t){
     var test = testEmail(e.target.value);
     var $el = t.$('input[name="eposta"]');
@@ -130,6 +133,10 @@ Template.rezform.events({
     } else {
       $el.removeClass('error');
     }
+  },
+  'keypress input[name="telefon"]': function(e,t){
+    var numbers = e.target.value.length > 0 ? /[0-9]/ : /[5]/;
+    return numbers.test(String.fromCharCode(e.which));
   },
   'blur input[name="telefon"], keyup input[name="telefon"]': function(e,t){
     var test = testTel(e.target.value);
