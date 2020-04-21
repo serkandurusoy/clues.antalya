@@ -1,1 +1,1 @@
-{ "public": { "ga": { "id": "UA-61799666-1" } }, "sikka.captcha.siteKey": "6LdwNgUTAAAAAL523K0FYt3hP3xtGB9w0RP8XG_O", "sikka.captcha.secret": "6LdwNgUTAAAAAG7Hg55eNLtElcJkfHWJntr4XerF", "PrerenderIO": { "token" : "9JzThgeXj2a9Ujzght6c" } }
+{ "public": { "ga": { "id": "UA-61799666-1" } }, "sikka.captcha.siteKey": "deprecated", "sikka.captcha.secret": "deprecated", "PrerenderIO": { "token" : "deprecated" } }
